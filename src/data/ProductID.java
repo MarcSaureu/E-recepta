@@ -1,0 +1,28 @@
+package data;
+
+public final class ProductID {
+    private final String UPC;
+
+    public ProductID(String code) {
+        UPC = code;
+    }
+
+    public String getUPC() throws NullPointerException {
+        return UPC;
+    }
+    @Override
+    public boolean equals(Object o){
+        if(this == o) return true;
+        if(o == null || getClass() != o.getClass()) return false;
+        ProductID prodID = (ProductID) o;
+        return UPC.equals(prodID.UPC);
+    }
+    @Override
+    public int hashCode(){
+        return UPC.hashCode();
+    }
+    @Override
+    public String toString(){
+        return "ProductID{ " + "product code='" + UPC + '\''+ '}';
+    }
+}
