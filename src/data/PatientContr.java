@@ -9,7 +9,7 @@ public final class PatientContr {
         PatientAport = Contribution;
     }
 
-    public BigDecimal getPatientAport() throws NullPointerException {
+    public BigDecimal getPatientAport() {
         return PatientAport;
     }
 

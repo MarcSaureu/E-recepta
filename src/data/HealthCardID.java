@@ -8,7 +8,7 @@ public final class HealthCardID {
         this.PersonalID = code;
     }
 
-    public String getPersonalID() throws NullPointerException {
+    public String getPersonalID() {
         return PersonalID;
     }
     @Override

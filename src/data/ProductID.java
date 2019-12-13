@@ -7,7 +7,7 @@ public final class ProductID {
         UPC = code;
     }
 
-    public String getUPC() throws NullPointerException {
+    public String getUPC() {
         return UPC;
     }
     @Override
