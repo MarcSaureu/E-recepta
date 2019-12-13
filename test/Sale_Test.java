@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import pharmacy.Sale;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 class Sale_Test {
@@ -24,4 +25,9 @@ class Sale_Test {
         BigDecimal big = new BigDecimal(10);
         assertEquals(big, sale.getAmountwithoutTaxes());
     }
+    @Test
+    void isClosedTest(){
+        assertTrue(!sale.isClosed());
+    }
+
 }
