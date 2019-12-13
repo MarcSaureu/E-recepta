@@ -1,6 +1,7 @@
 package pharmacy;
 
 import data.ProductID;
+import exceptions.DispensingNotAvaiableException;
 
 import java.util.Date;
 
@@ -12,7 +13,7 @@ public class Dispensing {
     public Dispensing(){
 
     }
-    public boolean dispensingEnabled() throws DispensingNotAvaiableException{
+    public boolean dispensingEnabled() throws DispensingNotAvaiableException {
        return false;
     }
     public void setProductAsDispensed(ProductID prodID){

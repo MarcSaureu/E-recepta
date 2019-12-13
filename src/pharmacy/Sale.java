@@ -2,6 +2,7 @@ package pharmacy;
 
 import data.PatientContr;
 import data.ProductID;
+import exceptions.SaleClosedException;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -23,15 +24,13 @@ public class Sale {
     private void calculateAmount(){
 
     }
-    private void addTaxes() throws SaleClosedException{
-        BigDecimal amount = this.amount;
-        amount.multiply(new BigDecimal(0.21));
-        this.amount.add(amount);
+    private void addTaxes() throws SaleClosedException {
+        this.amount =(this.amount.add((this.amount.multiply(new BigDecimal(0.21)))));
     }
     public void CalculateFinalAmount() throws SaleClosedException{
 
     }
-    public BigDecimal getAmount(){
+    public BigDecimal getAmount() throws SaleClosedException {
         addTaxes();
         return this.amount;
     }
