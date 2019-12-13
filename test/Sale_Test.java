@@ -16,6 +16,6 @@ public class Sale_Test {
     }
     @Test
     public void getAmountTest() throws SaleClosedException {
-        assertEquals(new BigDecimal(10 + (10*0.21)),sale.getAmount());
+        assertEquals(new BigDecimal(String.valueOf(new BigDecimal(10 + (10*0.21)))),sale.getAmount());
     }
 }
