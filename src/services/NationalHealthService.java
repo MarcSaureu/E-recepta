@@ -3,7 +3,11 @@ package services;
 import data.HealthCardID;
 import data.PatientContr;
 import data.ProductID;
+import exceptions.HealthCardException;
+import exceptions.NotValiedPrescriptionException;
+import exceptions.ProductIDException;
 import pharmacy.Dispensing;
+import pharmacy.ProductSpecification;
 
 import java.net.ConnectException;
 import java.util.List;
