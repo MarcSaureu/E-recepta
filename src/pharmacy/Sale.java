@@ -48,4 +48,7 @@ public class Sale {
     public Date getDate() {
         return this.date;
     }
+    public BigDecimal getAmountwithoutTaxes(){
+        return this.amount;
+    }
 }
