@@ -9,15 +9,27 @@ class Data_Tests {
     private data.PatientContr PatientContr =  new PatientContr(new BigDecimal(1234));
     private data.ProductID Product = new ProductID("1234");
     @Test
-    void HealthCardIDTest(){
+    void getHealthCardIDTest(){
         assertEquals("1234",HealthCard.getPersonalID());
     }
     @Test
-    void PatientContrTest(){
+    void getPatientContrTest(){
         assertEquals(new BigDecimal(1234),PatientContr.getPatientAport());
     }
     @Test
-    void ProductIDTest(){
+    void getProductIDTest(){
         assertEquals("1234",Product.getUPC());
+    }
+    @Test
+    void HealthCardIdEquals(){
+        assertTrue(HealthCard.equals(HealthCard));
+    }
+    @Test
+    void PatientContrEquals(){
+        assertTrue(PatientContr.equals(PatientContr));
+    }
+    @Test
+    void ProductIDEquals(){
+        assertTrue(Product.equals(Product));
     }
 }

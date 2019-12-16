@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import pharmacy.Sale;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 class Sale_Test {
