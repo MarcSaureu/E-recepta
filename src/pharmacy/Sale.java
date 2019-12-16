@@ -19,13 +19,13 @@ public class Sale {
         this.amount = big;
     }
     public void addLine(ProductID prodID, BigDecimal price, PatientContr contr) throws SaleClosedException{
-
+        ProductSaleLine SaleLine = new ProductSaleLine(prodID,price,contr);
     }
     private void calculateAmount(){
 
     }
     private void addTaxes() throws SaleClosedException {
-        this.amount =(this.amount.add((this.amount.multiply(new BigDecimal(0.21)))));
+        this.amount = (this.amount.add((this.amount.multiply(new BigDecimal(0.21)))));
     }
     public void CalculateFinalAmount() throws SaleClosedException{
 

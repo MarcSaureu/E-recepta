@@ -27,7 +27,7 @@ class Sale_Test {
     }
     @Test
     void isClosedTest(){
-        assertTrue(!sale.isClosed());
+        assertFalse(sale.isClosed());
     }
 
 }
