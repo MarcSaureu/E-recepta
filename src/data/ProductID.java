@@ -1,6 +1,7 @@
 package data;
 
 public final class ProductID {
+
     private final String UPC;
 
     public ProductID(String code) {
@@ -10,6 +11,7 @@ public final class ProductID {
     public String getUPC() {
         return UPC;
     }
+
     @Override
     public boolean equals(Object o){
         if(this == o) return true;
@@ -17,6 +19,7 @@ public final class ProductID {
         ProductID prodID = (ProductID) o;
         return UPC.equals(prodID.UPC);
     }
+
     @Override
     public int hashCode(){
         return UPC.hashCode();

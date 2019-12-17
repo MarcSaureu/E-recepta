@@ -11,6 +11,7 @@ public final class HealthCardID {
     public String getPersonalID() {
         return PersonalID;
     }
+
     @Override
     public boolean equals(Object o){
         if(this == o) return true;

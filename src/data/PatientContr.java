@@ -3,6 +3,7 @@ package data;
 import java.math.BigDecimal;
 
 public final class PatientContr {
+
     private final BigDecimal PatientAport;
 
     public PatientContr(BigDecimal Contribution) {

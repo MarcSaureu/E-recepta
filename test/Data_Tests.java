@@ -32,4 +32,28 @@ class Data_Tests {
     void ProductIDEquals(){
         assertTrue(Product.equals(Product));
     }
+    @Test
+    void HealthCardHashCode(){
+        assertEquals("1234".hashCode(),HealthCard.hashCode());
+    }
+    @Test
+    void PatientContrHashCode(){
+        assertEquals(new BigDecimal(1234).hashCode(),PatientContr.hashCode());
+    }
+    @Test
+    void ProdcutHashCode(){
+        assertEquals("1234".hashCode(),Product.hashCode());
+    }
+    @Test
+    void HealthCardToString(){
+        assertEquals("HealthCardID{ " + "personal code='" + "1234" + '\''+ '}',HealthCard.toString());
+    }
+    @Test
+    void PatientContrToString(){
+        assertEquals("PatientContr{ " + "PatientAportation code='" + "1234" + '\''+ '}', PatientContr.toString());
+    }
+    @Test
+    void ProductIDToString(){
+        assertEquals("ProductID{ " + "product code='" + "1234" + '\''+ '}',Product.toString());
+    }
 }
