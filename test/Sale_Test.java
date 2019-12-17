@@ -20,7 +20,7 @@ class Sale_Test {
         assertEquals(big.floatValue(), sale.getAmount().floatValue());
     }
     @Test
-    void getAmountTestwithoutTaxes(){
+    void getAmountTestWithoutTaxes(){
         BigDecimal big = new BigDecimal(10);
         assertEquals(big, sale.getAmountwithoutTaxes());
     }
