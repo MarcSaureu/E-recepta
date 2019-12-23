@@ -12,6 +12,8 @@ public class Sale {
     private Date date;
     private BigDecimal amount;
     private boolean isClosed;
+    private ProductSaleLine SaleLine;
+    private BigDecimal currentamount;
 
     public Sale(int sale, Date dat, BigDecimal big){
         this.saleCode = sale;
@@ -19,18 +21,32 @@ public class Sale {
         this.amount = big;
     }
     public void addLine(ProductID prodID, BigDecimal price, PatientContr contr) throws SaleClosedException{
-        ProductSaleLine SaleLine = new ProductSaleLine(prodID,price,contr);
-    }
-    private void calculateAmount(){
+        if(isClosed()){
+            throw new SaleClosedException("Error");
+        }
+        ProductSaleLine saleLine = new ProductSaleLine(prodID,price,contr);
+        this.SaleLine = saleLine;
 
     }
+    private void calculateAmount(){
+        this.currentamount.add(this.SaleLine.getPrice());
+    }
     private void addTaxes() throws SaleClosedException {
+        if(isClosed()){
+            throw new SaleClosedException("Error");
+        }
         this.amount = (this.amount.add((this.amount.multiply(new BigDecimal(0.21)))));
     }
     public void CalculateFinalAmount() throws SaleClosedException{
-
+        if(isClosed()){
+            throw new SaleClosedException("Error");
+        }
+        this.amount = this.currentamount;
     }
     public BigDecimal getAmount() throws SaleClosedException {
+        if(isClosed()){
+            throw new SaleClosedException("Error");
+        }
         addTaxes();
         return this.amount;
     }
