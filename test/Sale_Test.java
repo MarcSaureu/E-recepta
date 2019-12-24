@@ -1,5 +1,7 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import data.PatientContr;
+import data.ProductID;
 import exceptions.SaleClosedException;
 import org.junit.jupiter.api.Test;
 import pharmacy.Sale;
@@ -9,6 +11,13 @@ import java.util.Date;
 
 class Sale_Test {
     private Sale sale = new Sale(1,new Date(),new BigDecimal(10));
+
+    private void initializeSaleLine() throws SaleClosedException {
+        sale.addLine(new ProductID("1"),new BigDecimal(2),new PatientContr(new BigDecimal(3)));
+    }
+    private void createnewSaleLine(ProductID prodID, BigDecimal price, PatientContr patientContr) throws SaleClosedException {
+        sale.addLine(prodID,price,patientContr);
+    }
 
     @Test
     void saleCodeTest(){
@@ -29,4 +38,16 @@ class Sale_Test {
         assertFalse(sale.isClosed());
     }
 
+    @Test
+    void SaleLineTest() throws SaleClosedException {
+        initializeSaleLine();
+        assertTrue(sale.existSaleLine());
+    }
+    @Test
+    void CalculateAmountTest() throws SaleClosedException {
+        initializeSaleLine();
+        sale.CalculateFinalAmount();
+        assertEquals(new BigDecimal(2),sale.getCurrentamount());
+
+    }
 }
