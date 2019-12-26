@@ -23,6 +23,8 @@ public class Dispensing {
        }
     }
     public void setProductAsDispensed(ProductID prodID){
+        MedicineDispensingLine DispensingLine = new MedicineDispensingLine(prodID);
+        DispensingLine.setDispensed();
     }
     public void setCompleted(boolean comp){
         this.isCompleted = comp;
