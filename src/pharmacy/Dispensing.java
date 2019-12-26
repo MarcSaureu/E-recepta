@@ -9,6 +9,7 @@ public class Dispensing {
     private byte nOrder;
     private Date initDate, finalDate;
     private boolean isCompleted;
+    private MedicineDispensingLine DispensingLine;
 
     public Dispensing(byte order, Date initD, Date finalD){
         this.nOrder = order;
@@ -23,8 +24,8 @@ public class Dispensing {
        }
     }
     public void setProductAsDispensed(ProductID prodID){
-        MedicineDispensingLine DispensingLine = new MedicineDispensingLine(prodID);
-        DispensingLine.setDispensed();
+        this.DispensingLine = new MedicineDispensingLine(prodID);
+        this.DispensingLine.setDispensed();
     }
     public void setCompleted(boolean comp){
         this.isCompleted = comp;
