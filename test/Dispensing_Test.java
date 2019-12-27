@@ -6,10 +6,19 @@ import java.util.Date;
 
 class Dispensing_Test {
     private byte order = 20;
-    private pharmacy.Dispensing dispensing = new Dispensing(order,new Date(), new Date());
+    private pharmacy.Dispensing dispensing = new Dispensing(order, new Date("2019/05/14"), new Date("2019/09/20"));
 
     @Test
-    void getOrder(){ assertEquals(20, dispensing.getnOrder());}
-
+    void getOrderTest(){
+        assertEquals(order, dispensing.getnOrder());
+    }
+    @Test
+    void getInitDateTest(){
+        assertEquals(new Date("2019/05/14"), dispensing.getInitDate());
+    }
+    @Test
+    void getEndDateTest(){
+        assertEquals( new Date("2019/09/20"), dispensing.getFinalDate());
+    }
 
 }

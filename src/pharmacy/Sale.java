@@ -72,4 +72,7 @@ public class Sale {
     public BigDecimal getCurrentamount(){
         return this.currentamount;
     }
+    public void FinalizeSale(){
+        setClosed();
+    }
 }

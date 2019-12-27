@@ -24,7 +24,7 @@ public class DispensingTerminal {
         dispensing.setProductAsDispensed(pID);
     }
     public void finalizeSale(){
-
+        this.Sale.FinalizeSale();
     }
     public void realizePayment(BigDecimal quantity){
 
