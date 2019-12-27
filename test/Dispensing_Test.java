@@ -6,7 +6,7 @@ import java.util.Date;
 
 class Dispensing_Test {
     private byte order = 20;
-    private pharmacy.Dispensing dispensing = new Dispensing(order, new Date("2019/05/14"), new Date("2019/09/20"));
+    private Dispensing dispensing = new Dispensing(order, new Date("2019/05/14"), new Date("2019/09/20"));
 
     @Test
     void getOrderTest(){

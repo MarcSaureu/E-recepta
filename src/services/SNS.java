@@ -31,7 +31,7 @@ public class SNS implements NationalHealthService {
         if(pID.getUPC() == null){
             throw new ProductIDException("Error");
         }
-        return null;
+        return new ProductSpecification(pID);
     }
 
     @Override
