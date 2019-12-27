@@ -9,8 +9,7 @@ class Dispensing_Test {
     private pharmacy.Dispensing dispensing = new Dispensing(order,new Date(), new Date());
 
     @Test
-    void getOrderTest() {
-        assertEquals(order, dispensing.getnOrder());
-    }
+    void getOrder(){ assertEquals(20, dispensing.getnOrder());}
+
 
 }
