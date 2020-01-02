@@ -13,8 +13,8 @@ public class DispensingTerminal {
     private int SaleID = 0;
     private Dispensing dispensing;
 
-    public DispensingTerminal(){
-
+    public DispensingTerminal(Dispensing disp){
+        this.dispensing = disp;
     }
     public void getePrenscription(char option){
 
@@ -25,16 +25,19 @@ public class DispensingTerminal {
     }
     public void enterProduct(ProductID pID) throws SaleClosedException {
         ProductSpecification Specification = new ProductSpecification(pID);
-        this.Sale.addLine(pID,Specification.getPrice(), new PatientContr(Specification.getPrice()));
-        dispensing.setProductAsDispensed(pID);
+        Specification.setPrice(new BigDecimal(1));
+        this.Sale.addLine(pID,Specification.getPrice(), new PatientContr(new BigDecimal(0)));
+        this.dispensing.setProductAsDispensed(pID);
     }
-    public void finalizeSale() throws SaleClosedException, QuantityMinorThanImportException {
+    public void finalizeSale(){
         this.Sale.FinalizeSale();
-        realizePayment(this.Sale.getCurrentamount());
     }
     public void realizePayment(BigDecimal quantity) throws SaleClosedException, QuantityMinorThanImportException {
-        if(quantity.compareTo(Sale.getAmount()) < 0){
+        if(quantity.compareTo(this.Sale.getAmount()) < 0){
             throw new QuantityMinorThanImportException("Quantity minor than Import");
+        }
+        if(this.Sale.isClosed()){
+            throw new SaleClosedException("Sale is Closed");
         }
 
     }
@@ -46,5 +49,14 @@ public class DispensingTerminal {
     }
     private void addSaleID(){
         this.SaleID++;
+    }
+    public int getSaleID(){
+        return this.SaleID;
+    }
+    public boolean isSaleClosed(){
+        return this.Sale.isClosed();
+    }
+    public boolean EnteredProduct(){
+        return this.dispensing.isDispensed();
     }
 }

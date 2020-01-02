@@ -4,18 +4,18 @@ import data.ProductID;
 
 public class MedicineDispensingLine {
     private ProductID prodID;
-    private boolean dispensed;
+    private boolean Dispensed = false;
 
     public MedicineDispensingLine(ProductID prodId){
         this.prodID = prodId;
     }
     public void setDispensed(){
-        this.dispensed = true;
+        this.Dispensed = true;
     }
     public ProductID getProdID(){
         return this.prodID;
     }
-    public boolean getdispensed(){
-        return this.dispensed;
+    public boolean getDispensed(){
+        return this.Dispensed;
     }
 }
