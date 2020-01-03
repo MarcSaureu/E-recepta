@@ -5,9 +5,9 @@ import exceptions.SaleClosedException;
 import org.junit.jupiter.api.Test;
 import pharmacy.Dispensing;
 import pharmacy.DispensingTerminal;
-import pharmacy.ProductSpecification;
 
-import java.math.BigDecimal;
+
+
 import java.util.Date;
 
 class DispensingTerminal_Test {

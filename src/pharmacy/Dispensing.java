@@ -46,6 +46,7 @@ public class Dispensing {
     public Date getInitDate() {
         return this.initDate;
     }
+
     public boolean isDispensed(){
         return this.DispensingLine.getDispensed();
     }

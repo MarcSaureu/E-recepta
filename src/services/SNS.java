@@ -15,7 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SNS implements NationalHealthService {
-    boolean isConnected = true;
+    private boolean isConnected = false;
+
     @Override
     public Dispensing getePrenscription(HealthCardID hcID) throws HealthCardException, NotValiedPrescriptionException, ConnectException {
         if(hcID.getPersonalID() == null){
@@ -55,7 +56,9 @@ public class SNS implements NationalHealthService {
         list.add(disp);
         return list;
     }
-
+    public void setConnected(){
+        this.isConnected = true;
+    }
     private boolean isConnected(){
         return this.isConnected;
     }

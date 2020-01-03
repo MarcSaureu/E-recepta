@@ -10,7 +10,8 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 class Sale_Test {
-    private Sale sale = new Sale(1,new Date(),new BigDecimal(10));
+    Date dat = new Date("2020/9/20");
+    private Sale sale = new Sale(1,dat,new BigDecimal(10));
 
     private void initializeSaleLine() throws SaleClosedException {
         sale.addLine(new ProductID("1"),new BigDecimal(2),new PatientContr(new BigDecimal(3)));
@@ -48,6 +49,9 @@ class Sale_Test {
         initializeSaleLine();
         sale.CalculateFinalAmount();
         assertEquals(new BigDecimal(2),sale.getCurrentamount());
-
+    }
+    @Test
+    void getDateTest(){
+        assertEquals(dat,sale.getDate());
     }
 }
