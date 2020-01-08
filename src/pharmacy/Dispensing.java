@@ -50,4 +50,8 @@ public class Dispensing {
     public boolean isDispensed(){
         return this.DispensingLine.getDispensed();
     }
+
+    public boolean isValidDate(){
+        return new Date().after(this.initDate) && new Date().before(this.finalDate);
+    }
 }

@@ -12,11 +12,11 @@ import pharmacy.ProductSpecification;
 import java.math.BigDecimal;
 import java.net.ConnectException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class SNS implements NationalHealthService {
     private boolean isConnected = false;
-
     @Override
     public Dispensing getePrenscription(HealthCardID hcID) throws HealthCardException, NotValiedPrescriptionException, ConnectException {
         if(hcID.getPersonalID() == null){
@@ -25,7 +25,12 @@ public class SNS implements NationalHealthService {
         if(!isConnected()){
             throw new ConnectException("Error");
         }
-        return null;
+        byte order = (byte) hcID.hashCode();
+        Dispensing dispensing = new Dispensing(order,new Date(),new Date());
+        if(!dispensing.isValidDate()){
+            throw new NotValiedPrescriptionException("Error");
+        }
+        return dispensing;
     }
 
     @Override
