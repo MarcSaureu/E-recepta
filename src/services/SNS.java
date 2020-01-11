@@ -17,6 +17,7 @@ import java.util.List;
 
 public class SNS implements NationalHealthService {
     private boolean isConnected = false;
+    private Dispensing disp;
     @Override
     public Dispensing getePrenscription(HealthCardID hcID) throws HealthCardException, NotValiedPrescriptionException, ConnectException {
         if(hcID.getPersonalID() == null){
@@ -30,6 +31,7 @@ public class SNS implements NationalHealthService {
         if(!dispensing.isValidDate()){
             throw new NotValiedPrescriptionException("Error");
         }
+        this.disp = dispensing;
         return dispensing;
     }
 
@@ -66,5 +68,12 @@ public class SNS implements NationalHealthService {
     }
     private boolean isConnected(){
         return this.isConnected;
+    }
+
+    public HealthCardID getHealthCardID() throws HealthCardException{
+        if(this.disp.getnOrder() == 0){
+            throw new HealthCardException("Error");
+        }
+        return new HealthCardID(disp.nOrderToString());
     }
 }

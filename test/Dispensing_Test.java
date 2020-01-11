@@ -22,7 +22,7 @@ class Dispensing_Test {
     }
     @Test
     void getEndDateTest(){
-        assertEquals( new Date("2019/09/20"), dispensing.getFinalDate());
+        assertEquals( new Date("2020/09/20"), dispensing.getFinalDate());
     }
     @Test
     void isCompletedTest(){

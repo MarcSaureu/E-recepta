@@ -54,4 +54,8 @@ public class Dispensing {
     public boolean isValidDate(){
         return new Date().after(this.initDate) && new Date().before(this.finalDate);
     }
+
+    public String nOrderToString(){
+        return  "" + nOrder;
+    }
 }
