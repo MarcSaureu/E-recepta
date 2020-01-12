@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 class Sale_Test {
-    Date dat = new Date("2020/9/20");
+    private Date dat = new Date("2020/9/20");
     private Sale sale = new Sale(1,dat,new BigDecimal(10));
 
     private void initializeSaleLine() throws SaleClosedException {

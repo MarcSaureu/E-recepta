@@ -12,6 +12,9 @@ class Dispensing_Test {
     private Dispensing dispensing = new Dispensing(order, new Date("2019/05/14"), new Date("2020/09/20"));
     private ProductID PID = new ProductID("1");
 
+    private Date INITDate(){
+        return new Date("2020/07/18");
+    }
     @Test
     void getOrderTest(){
         assertEquals(order, dispensing.getnOrder());
@@ -41,5 +44,17 @@ class Dispensing_Test {
     @Test
     void isEnabledDispensedTest() throws DispensingNotAvaiableException {
         assertTrue(dispensing.dispensingEnabled());
+    }
+    @Test
+    void setInitDateTest(){
+        Date date = INITDate();
+        dispensing.setInitDate(date);
+        assertEquals(date,dispensing.getInitDate());
+    }
+    @Test
+    void setFinalDate(){
+        Date date = INITDate();
+        dispensing.setFinalDate(date);
+        assertEquals(date,dispensing.getFinalDate());
     }
 }
