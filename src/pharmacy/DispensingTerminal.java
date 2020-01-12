@@ -68,4 +68,14 @@ public class DispensingTerminal {
     public boolean EnteredProduct(){
         return this.dispensing.isDispensed();
     }
+    public void SNS(SNS SNS){
+        this.sns = SNS;
+        this.sns.setConnected();
+    }
+    public SNS getSns(){
+        return this.sns;
+    }
+    public Dispensing getDispensing(){
+        return this.dispensing;
+    }
 }

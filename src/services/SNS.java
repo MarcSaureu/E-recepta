@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class SNS implements NationalHealthService {
+public class SNS implements NationalHealthService,SNSInt {
     private boolean isConnected = false;
     private Dispensing disp;
     @Override
@@ -27,7 +27,7 @@ public class SNS implements NationalHealthService {
             throw new ConnectException("Error");
         }
         byte order = (byte) hcID.hashCode();
-        Dispensing dispensing = new Dispensing(order,new Date(),new Date());
+        Dispensing dispensing = new Dispensing(order,new Date("2019/01/01"),new Date("2021/01/01"));
         if(!dispensing.isValidDate()){
             throw new NotValiedPrescriptionException("Error");
         }
@@ -63,10 +63,12 @@ public class SNS implements NationalHealthService {
         list.add(disp);
         return list;
     }
+    @Override
     public void setConnected(){
         this.isConnected = true;
     }
-    private boolean isConnected(){
+    @Override
+    public boolean isConnected(){
         return this.isConnected;
     }
 

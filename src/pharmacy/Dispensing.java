@@ -58,4 +58,11 @@ public class Dispensing {
     public String nOrderToString(){
         return  "" + nOrder;
     }
+
+    public void setInitDate(Date date){
+        this.initDate = date;
+    }
+    public void setFinalDate(Date date){
+        this.finalDate = date;
+    }
 }
