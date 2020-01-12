@@ -50,6 +50,13 @@ class DispensingTerminal_Test {
         assertTrue(SNS.isConnected);
     }
     @Test
+    void SNSTest() throws HealthCardException, NotValiedPrescriptionException, ConnectException {
+        SNSInit();
+        DispensingTerminal.SNS(DispensingTerminal.getSns());
+        SNS sns = DispensingTerminal.getSns();
+        assertTrue(sns.isConnected());
+    }
+    @Test
     void getEPrenscriptionTest() throws HealthCardException, NotValiedPrescriptionException, ConnectException {
         DispensingTerminal Disp = new DispensingTerminal(null);
         Disp.SNSInit();
