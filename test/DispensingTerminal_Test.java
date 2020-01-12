@@ -62,7 +62,7 @@ class DispensingTerminal_Test {
         Disp.SNSInit();
         HealthCardID hcID =  new HealthCardID("1");
         SNS sns = Disp.getSns();
-        Dispensing dispensing = sns.getePrenscription(hcID);
+        sns.getePrenscription(hcID);
         Disp.getePrenscription();
         assertTrue(sns.isConnected());
     }

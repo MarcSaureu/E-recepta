@@ -54,4 +54,9 @@ class Sale_Test {
     void getDateTest(){
         assertEquals(dat,sale.getDate());
     }
+    @Test
+    void SaleClosedExceptionTest(){
+        sale.FinalizeSale();
+        assertThrows(SaleClosedException.class, () -> sale.CalculateFinalAmount());
+    }
 }

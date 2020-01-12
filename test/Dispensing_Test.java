@@ -57,4 +57,9 @@ class Dispensing_Test {
         dispensing.setFinalDate(date);
         assertEquals(date,dispensing.getFinalDate());
     }
+    @Test
+    void DispensingNotAvaiableTest() throws DispensingNotAvaiableException {
+        Dispensing disp = new Dispensing(order,new Date("2019/10/10"), new Date("2019/11/10"));
+        assertThrows(DispensingNotAvaiableException.class, disp::dispensingEnabled);
+    }
 }
